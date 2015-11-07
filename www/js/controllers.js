@@ -17,17 +17,38 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('OnboardingCtrl', function($scope, $stateParams,Profile) {
-  $scope.step1done = function (){
-    Profile.step1 = true;
-    console.log(" step 1 done");
+.controller('OnboardingCtrl', function($scope, $state,$stateParams,Profile) {
+  $scope.stepdone = function (stepnum, value){
+    try{
+      Profile.steps[stepnum] = value;
+    }catch(e){}
+
+    console.log(" step "+stepnum+" done"+ value);
     $scope.$broadcast('slideBox.nextSlide');
+  }
+
+
+  $scope.start = function(){
+    return $state.go("tab.chats");
   }
 })
 
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
   $scope.chat = Chats.get($stateParams.chatId);
+  $scope.v = {
+    text:[],
+    question: ""
+  }
+  $scope.ask = function(){
+    if ($scope.v.question == "rep"){
+      $scope.v.text.push({rep: true,q: $scope.v.question});
+
+    }else{
+      $scope.v.text.push({sender: true,q: $scope.v.question});
+    }
+    
+  }
 })
 
 .controller('AccountCtrl', function($scope) {

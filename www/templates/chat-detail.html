@@ -5,10 +5,43 @@
   The Friends service returns an array of friend data
 -->
 <ion-view view-title="{{chat.name}}">
+
   <ion-content class="padding">
-    <img ng-src="{{chat.face}}" style="width: 64px; height: 64px">
-    <p>
-      {{chat.lastText}}
-    </p>
+
+  <ion-scroll direction="y" class="available-scroller">
+    <ion-item class="chat" collection-repeat="item in v.text">
+
+    <div ng-show="item.sender" class='item-icon-left'>
+<i class="icon ion-chatbubble">
+      {{item.q}}
+      </i>
+    </div>
+
+    <div ng-show="item.rep" class='item-icon-right'>
+<i class="icon ion-ios-chatbubble-outline">
+      {{item.q}}
+      </i>
+    </div>
+
+
+
+  </ion-item>
+
+  </ion-scroll>
+
+    
+  
+
+  <div class="bar bar-header item-input-inset">
+  <label class="item-input-wrapper">
+    <i class="icon ion-ios-chatbubble-outline placeholder-icon"></i>
+    <input type="search" ng-model="v.question" placeholder="I need a new Visa">
+  </label>
+  <button class="button button-clear" ng-click="ask()">
+    Ask
+  </button>
+  
+</div>
+
   </ion-content>
 </ion-view>
