@@ -9,17 +9,17 @@
   <ion-content class="padding">
 
   <ion-scroll direction="y" class="available-scroller">
-    <ion-item class="chat" collection-repeat="item in v.text">
+    <ion-item class="chat" collection-repeat="item in v.messages">
 
-    <div ng-show="item.sender" class='item-icon-left'>
+    <div ng-show="item.is_customer" class='item-icon-left'>
 <i class="icon ion-chatbubble">
-      {{item.q}}
+      {{item.message}}
       </i>
     </div>
 
-    <div ng-show="item.rep" class='item-icon-right'>
+    <div ng-show="!item.is_customer" class='item-icon-right'>
 <i class="icon ion-ios-chatbubble-outline">
-      {{item.q}}
+      {{item.message}}
       </i>
     </div>
 

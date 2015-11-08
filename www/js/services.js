@@ -1,9 +1,41 @@
 angular.module('starter.services', [])
 .factory('Profile', function() {
   var profile = {};
-
+  //simple temp store of persons profile data
   return profile;
 })
+
+
+
+.factory('livechat',  function($firebaseArray, $q) {
+
+//todo move the url out of here
+var frurl = 'https://rbchack.firebaseIO.com/conversations/';
+
+
+return {
+
+
+ remove: function (chat) {
+  //TODO
+    // chats.$remove(chat).then(function (ref) {
+    //         ref.key() === chat.$id; // true item has been removed
+    //     });
+  },
+ roomcontent: function(_roomid){
+  
+
+    //get back array
+    var ref = new Firebase(frurl+_roomid);
+    return $firebaseArray(ref);
+  }
+ 
+
+  
+}
+
+})
+
 
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
@@ -53,3 +85,6 @@ angular.module('starter.services', [])
     }
   };
 });
+
+
+

@@ -1,8 +1,8 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['firebase'])
 
 .controller('DashCtrl', function($scope) {})
 
-.controller('ChatsCtrl', function($scope, Chats) {
+.controller('ChatsCtrl', function($scope,$state, Chats,livechat) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -10,6 +10,14 @@ angular.module('starter.controllers', [])
   //
   //$scope.$on('$ionicView.enter', function(e) {
   //});
+
+
+
+  $scope.makechat = function (repname){
+      
+       $state.go('tab.chat-detail',{chatId: 12333});
+    
+  }
 
   $scope.chats = Chats.all();
   $scope.remove = function(chat) {
@@ -34,19 +42,30 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
+.controller('ChatDetailCtrl', function($scope, $stateParams, livechat) {
+  
+
+  
   $scope.v = {
-    text:[],
+    messages: livechat.roomcontent($stateParams.chatId),
     question: ""
   }
   $scope.ask = function(){
-    if ($scope.v.question == "rep"){
-      $scope.v.text.push({rep: true,q: $scope.v.question});
 
+    var chatMessage = {
+      is_customer: true,
+      message: $scope.v.question,
+      createdAt: Firebase.ServerValue.TIMESTAMP
+    };
+
+
+    if ($scope.v.question == "rep"){
+      chatMessage.is_customer = false;
+      
     }else{
-      $scope.v.text.push({sender: true,q: $scope.v.question});
+     
     }
+    $scope.v.messages.$add(chatMessage);
     
   }
 })
