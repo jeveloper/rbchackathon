@@ -1,83 +1,112 @@
+
 <ion-view >
-<ion-content  has-bouncing="false" class="container">
+<ion-nav-buttons side="primary">
+<div class="bar bar-header bar-stable">
+  <h1 class="title">Welcome</h1>
+</div>
+   
+    </ion-nav-buttons>
+<ion-content   has-bouncing="false" class="padding container" scroll="false">
 <ion-slide-box  show-pager="false">
-<ion-slide>
-<div >
+<ion-slide >
 
-	<h1>Interact with Rep that matches YOU</h1>
+<div class="row" style="padding-top:30%">
+	<div class="col text-center">
+		<h2>Interact with an Advisor<br> based on your preferences</h2>
 
+		<br>
+		<button ng-click="stepdone(0,'');" class="button button-clear button-positive">
+  Swipe right to begin
+</button>
+	</div>
 </div>
+
 </ion-slide>
 
 <ion-slide>
 <div >
-	<h1>We speak your language</h1>
+	<div class="row" style="padding-top:30%">
+		<div class="col text-center">
+			<h2>We speak your language</h2>
 
-	<button class="button button-full button-positive" ng-click="stepdone(1,'en')">
-		English
-	</button>
-	<button class="button button-full button-positive" ng-click="stepdone(1,'fr')">
-		Français
-	</button>
-	<button class="button button-full button-positive" ng-click="stepdone(1,'in')">
-		ᐃᓄᒃᑎᑐᑦ ᑎᑎᕋᐅᓯᖅ (inuktitut)
-	</button>
+			<button class="button button-full button-positive" ng-click="stepdone(1,'English')">
+				English
+			</button>
+			<button class="button button-full button-positive" ng-click="stepdone(1,'French')">
+				Français
+			</button>
+			<button class="button button-full button-positive" ng-click="stepdone(1,'Inuktitut')">
+				ᐃᓄᒃᑎᑐᑦ ᑎᑎᕋᐅᓯᖅ (inuktitut)
+			</button>
 
-	<button class="button button-full button-positive" ng-click="stepdone(1,'ru')">
-		Pусский
-	</button>
+			<button class="button button-full button-positive" ng-click="stepdone(1,'Pусский')">
+				Pусский
+			</button>
 
-	<button class="button button-full button-dark" ng-click="stepdone(1,'skip')">
-		Skip
-	</button>
-
-
-</div>
-</ion-slide>
-<ion-slide>
-<div ><h1>Topic?</h1>
-
-	<button class="button button-full button-positive" ng-click="stepdone(2,'mortgage')">
-		Mortgage
-	</button>
-
-	<button class="button button-full button-energized" ng-click="stepdone(2,'business')">
-		Business Banking
-	</button>
-
-	<button class="button button-full button-dark" ng-click="stepdone(2,'skip')">
-		Other
-	</button>
-
+			<button class="button button-full button-dark" ng-click="stepdone(1,'skip')">
+				Skip
+			</button>
+		</div>
+	</div>
 
 </div>
 </ion-slide>
 <ion-slide>
-<div ><h1>Preferred Location</h1>
+<div >
+	<div class="row" style="padding-top:30%">
+		<div class="col text-center">
+			<h2>How can we help you today?</h2>
 
-	<button class="button button-full button-positive" ng-click="stepdone(3,'dt')">
-		Downtown Toronto
-	</button>
+			<button class="button button-full button-positive" ng-click="stepdone(2,'mortgage')">
+				Mortgage
+			</button>
 
-	<button class="button button-full button-energized" ng-click="stepdone(3,'sc')">
-		Scarborough Town Centre
-	</button>
+			<button class="button button-full button-positive" ng-click="stepdone(2,'business banking')">
+				Business Banking
+			</button>
 
-	<button class="button button-full button-dark" ng-click="stepdone(3,'skip')">
-		Skip
-	</button>
-
+			<button class="button button-full button-dark" ng-click="stepdone(2,'skip')">
+				Other
+			</button>
+		</div>
+	</div>
 
 </div>
 </ion-slide>
-
-
 <ion-slide>
 <div >
 
-	<button class="button button-full button-assertive" ng-click="start()">
-		Ready to Connect with Rep?
-	</button>
+	<div class="row" style="padding-top:30%">
+		<div class="col text-center">
+			<h2>What is your preferred location?</h2>
+
+			<button class="button button-full button-positive" ng-click="stepdone(3,'Toronto')">
+				Downtown Toronto
+			</button>
+
+			<button class="button button-full button-positive" ng-click="stepdone(3,'Manhattan')">
+				Manhattan
+			</button>
+
+			<button class="button button-full button-dark" ng-click="stepdone(3,'skip')">
+				Skip
+			</button>
+		</div>
+	</div>
+
+</div>
+</ion-slide>
+
+
+<ion-slide>
+<div class="row" style="padding-top:50%">
+	<div class="col text-center">
+		<button  class="button button-full button-energized" ng-click="start()">
+			Connect with a RBC Advisor?
+		</button>
+	</div>
+</div>
+
 
 </div>
 </ion-slide>

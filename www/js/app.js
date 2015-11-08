@@ -12,7 +12,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      //this assures that done button shows up and works
+      //http://forum.ionicframework.com/t/how-to-have-the-done-button-on-the-ios-keyboard/9634
+      // cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
 
     }
@@ -50,16 +52,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
-  .state('tab.dash', {
-    url: '/dash',
-    views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
-      }
-    }
-  })
-
 
   .state('tab.chats', {
       url: '/chats',
@@ -91,6 +83,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/start'); //was /tab/dash
+  $urlRouterProvider.otherwise('/tab/start'); 
 
 });

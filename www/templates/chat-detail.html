@@ -1,47 +1,45 @@
-<!--
-  This template loads for the 'tab.friend-detail' state (app.js)
-  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
-  The FriendsCtrl pulls data from the Friends service (service.js)
-  The Friends service returns an array of friend data
--->
-<ion-view view-title="{{chat.name}}">
 
-  <ion-content class="padding">
+<ion-view view-title="">
+ <ion-nav-buttons side="primary">
+  <button class="button button-small button-positive" >
+      
+     Back to RBC App
+      </button>
+        <div class="title">Chat</div>
+      <button class="button button-small button-balanced" href="tel:+1-1800-769-2520">
+      <i class="ion-ios-telephone"></i>
+     Call
+      </button>
+       
+    </ion-nav-buttons>
+<ion-content class="available-scroller " scrollbar-x="false" overflow-scroll="true"  >
 
-  <ion-scroll direction="y" class="available-scroller">
-    <ion-item class="chat" collection-repeat="item in v.messages">
+<ion-item class="chat" collection-repeat="item in v.messages">
 
-    <div ng-show="item.is_customer" class='item-icon-left'>
-<i class="icon ion-chatbubble">
-      {{item.message}}
-      </i>
-    </div>
-
-    <div ng-show="!item.is_customer" class='item-icon-right'>
-<i class="icon ion-ios-chatbubble-outline">
-      {{item.message}}
-      </i>
-    </div>
-
+  <div  ng-show="item.is_customer" >
+  <i class=" icon  item-text-wrap ion-chatbubble">
+    {{item.message}}
+  </i>
+  </div>
 
 
-  </ion-item>
+  <div ng-show="!item.is_customer" class="item-text-wrap  item-icon-right" >
+  <i  class="icon ion-ios-chatbubble-outline  " id="rep_chat">
+    {{item.message}}
+  </i>
+  </div>
 
-  </ion-scroll>
+</ion-item>
 
-    
-  
-
-  <div class="bar bar-header item-input-inset">
+</ion-content>
+<div class=" kickfooter bar bar-footer item-input-inset ">
   <label class="item-input-wrapper">
     <i class="icon ion-ios-chatbubble-outline placeholder-icon"></i>
     <input type="search" ng-model="v.question" placeholder="I need a new Visa">
   </label>
-  <button class="button button-clear" ng-click="ask()">
-    Ask
+  <button class="button button-positive" ng-click="ask()">
+    Send
   </button>
-  
-</div>
 
-  </ion-content>
+</div>
 </ion-view>
