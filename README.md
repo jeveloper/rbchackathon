@@ -1,4 +1,5 @@
-# Bincu - a product of 2015 RBC Hackathon , 36 hours, 45 minutes of sleep , better interaction with customers
+# Bincu -  better interaction with customers
+### A product of 2015 RBC Hackathon , 36 hours, 45 minutes of sleep
 =====================
 
 
@@ -15,7 +16,7 @@
 - Using firebase for real time communication between an Advisor user and customer
 - Call button may attempt to dial RBC phone number, beware
 - Simple filtering by languages or/and topic of customer and matching advisor
-
+- replace firebase url with your own, rbchack.firebaseIO.com will be removed after hackathon
 
 * Running on a Device:
 
@@ -69,5 +70,22 @@ app.listen(process.env.PORT || 3000, function () {
   console.dir("Express server started on port 3000.");
 });
 ```
+
+### Screenshots
+
+![Alt text](https://github.com/jeveloper/rbchackathon/screenshots/desktop.png "Desktop (think advisor)")
+
+![Alt text](https://github.com/jeveloper/rbchackathon/screenshots/1.png "Welcome")
+
+![Alt text](https://github.com/jeveloper/rbchackathon/screenshots/2.png "Aboriginal Language In Canada and others")
+
+![Alt text](https://github.com/jeveloper/rbchackathon/screenshots/3.png "Topics to narrow down to ")
+
+![Alt text](https://github.com/jeveloper/rbchackathon/screenshots/4.png "What if Advisor can derect you to nearest location")
+
+![Alt text](https://github.com/jeveloper/rbchackathon/screenshots/5.png "Speak to qualified advisor")
+
+![Alt text](https://github.com/jeveloper/rbchackathon/screenshots/6.png "Real time chat")
+
 
 
