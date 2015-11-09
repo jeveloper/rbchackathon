@@ -1,14 +1,73 @@
-Bincu
+# Bincu - a product of 2015 RBC Hackathon , 36 hours, 45 minutes of sleep , better interaction with customers
 =====================
 
-Maybe this is a hacky way of deploy a bundle
-ios-deploy --justlaunch  --bundle Bincu.app
+
+### Simplicity, Creativity, Impact 
+
+- Everyone is familiar with a chat app, few questions to identify the best Advisor and you're ready to chat
+- Call center operations will become more effecient (think chatting with a few customers at once)
+- I spent a good chunk of the night to integrate VoiP (voice over ip) to offer direct communication - tech issues caused me to drop it
 
 
-ios-deploy --justlaunch  --bundle /Users/sergebornow/Documents/mystuff/hackathon/app1/myApp/platforms/ios/build/device/Bincu.app
+### Tech stuff
+
+- Built with Ionic framework, cordova, javascript, angularJS , small API server with NodeJS 
+- Using firebase for real time communication between an Advisor user and customer
+- Call button may attempt to dial RBC phone number, beware
+- Simple filtering by languages or/and topic of customer and matching advisor
 
 
-This used to work
-ionic run ios --device
+* Running on a Device:
+
+### IOS
+- ionic run ios --device
+- ios-deploy --bundle <location>
+
+### Android
+
+- ionic run android
+
+
+
+#### API Server to generate token for security reasons , for Audio/Video communication
+
+
+API Server (i deployed it on MS Azure with continous deployment setup)
+
+```
+var express = require("express"), // Include express.
+    twilio = require("twilio"); // Include twilio.
+
+var app = express(); // Initialize express.
+var cors = require('cors');
+
+app.use(cors());
+
+
+// Get a Twilio capability token.
+app.get("/twilio/token", function (req, res) {
+
+  var capability = new twilio.Capability( // Create a Twilio capability token.
+    'TWI KEY',
+    'AUTH'
+  );
+
+  // Set the capability token to allow the client to make outbound calls.
+  capability.allowClientOutgoing('APP ID');
+  capability.allowClientIncoming('rep');
+
+  // Send the token to the client.
+  res.send(capability.generate());
+});
+
+app.get("/status", function (req, res){
+  res.send("OK");
+});
+
+// Fire up the server and start listening!
+app.listen(process.env.PORT || 3000, function () {
+  console.dir("Express server started on port 3000.");
+});
+```
 
 

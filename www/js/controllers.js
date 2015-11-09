@@ -12,18 +12,18 @@ angular.module('starter.controllers', ['firebase'])
 
 
 $scope.makechat = function (repnum,repname){
-  $rootScope.$broadcast("app.addmessage",{is_customer: false, message: "Hi, I'm  "+repname+", How can i Help?"});
-  $rootScope.$broadcast("app.addmessage",{is_customer: true, message: "Hi I'm Serge Bornow , looking for "+Profile.steps[2] + " in "+Profile.steps[3] });
-  
-
+ 
    $ionicHistory.nextViewOptions({
     disableBack: true
   });
 
+var room = livechat.roomcontent(repnum);
+
+room.$add({is_customer: false, message: "Hi, I'm  "+repname+", How can i Help?"});
+room.$add({is_customer: true, message: "Hi I'm Serge Bornow , looking for "+Profile.steps[2] + " in "+Profile.steps[3] });
+
+
    $state.go('tab.chat-detail',{chatId:repnum });
-
-
-
 }
 
 
@@ -68,41 +68,25 @@ $scope.makechat = function (repnum,repname){
 })
 
 
-.controller('ChatDetailCtrl', function($scope, $http,$ionicPopup,$rootScope,Profile,$ionicLoading,$ionicScrollDelegate, $stateParams, livechat) {
- $ionicScrollDelegate.scrollBottom();
+.controller('ChatDetailCtrl', function($scope, $rootScope,Profile,$ionicLoading,$ionicScrollDelegate, $stateParams, livechat) {
 
- $scope.showAlert = function(msg) {
-   var alertPopup = $ionicPopup.alert({
-     title: 'Hey',
-     template: msg
-   });
-   alertPopup.then(function(res) {
-     console.log('done');
-   });
- }
+
 
  $scope.v = {
   messages: livechat.roomcontent($stateParams.chatId),
   question: ""
 };
 
-$scope.show = function() {
-  $ionicLoading.show({
-    template: 'Loading...'
-  });
-};
-$scope.hide = function(){
-  $ionicLoading.hide();
-};
 
 
-
-
-$rootScope.$on('app.addmessage', function(e,message) {
-
-  $scope.v.messages.$add(message);
+$scope.$on('$ionicView.enter', function(e) {
+  //upon re-entry to this view
+ $ionicScrollDelegate.scrollBottom();
 });
 
+
+
+//nice effect when a new message comes in , scroll down automatically 
 $scope.v.messages.$watch(function(e) {
   if (e.event === 'child_added'){
     $ionicScrollDelegate.scrollBottom(true);
