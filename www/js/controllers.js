@@ -15,14 +15,14 @@ $scope.makechat = function (repnum,repname){
   $rootScope.$broadcast("app.addmessage",{is_customer: false, message: "Hi, I'm  "+repname+", How can i Help?"});
   $rootScope.$broadcast("app.addmessage",{is_customer: true, message: "Hi I'm Serge Bornow , looking for "+Profile.steps[2] + " in "+Profile.steps[3] });
   
-  $interval(function(done){
+
    $ionicHistory.nextViewOptions({
     disableBack: true
   });
 
    $state.go('tab.chat-detail',{chatId:repnum });
 
- },500)
+
 
 }
 
@@ -95,63 +95,8 @@ $scope.hide = function(){
   $ionicLoading.hide();
 };
 
-$scope.hangup = function(){
-
-  Twilio.Device.disconnectAll();
-}
 
 
-$scope.makecall = function(){
-  $scope.show();
-  $http.get('https://rbcboomer.azurewebsites.net/twilio/token').success(function (token) {
-    $scope.hide();
-    console.log("YAY GOT TOKEN");
-    console.log(token);
-
-
-    Twilio.Device.setup(token, { debug: true, rtc: true });
-
-    Twilio.Device.ready(function(device) {
-        // The device is now ready
-        console.log("Twilio.Device is now ready for connections");
-
-        var connection = Twilio.Device.connect({agent: 'rep'});
-      });
-  });
-}
-$scope.takecall = function(){
-  $scope.show();
-
-  $http.get('https://rbcboomer.azurewebsites.net/twilio/token/rep').success(function (token) {
-    $scope.hide();
-    console.log("YAY GOT TOKEN");
-    console.log(token);
-
-
-    Twilio.Device.setup(token, { debug: true, rtc: true });
-
-    Twilio.Device.ready(function(device) {
-        // The device is now ready
-        console.log("Twilio.Device is now ready for connections");
-        Twilio.Device.incoming(function(connection) {
-          connection.accept();
-          $scope.showAlert("Accepted a call!");
-          console.log("INCOMING CALL!!!");
-          console.log(connection.parameters);
-        });
-      });
-
-    
-               //Twilio.Device.setup(token); // Setup our Twilio device with the token.
-    }); // Note: Should do error checking here.
-
-// Twilio.Device.ready(function(device) {
-//   // The device is now ready
-//   console.log("Twilio.Device is now ready for connections");
-// });
-
-
-}
 
 $rootScope.$on('app.addmessage', function(e,message) {
 
@@ -172,7 +117,7 @@ $scope.ask = function(){
     message: $scope.v.question,
     createdAt: Firebase.ServerValue.TIMESTAMP
   };
-  console.log(Profile);
+  
 
   if (Profile.isrep == true){
     chatMessage.is_customer = false;
