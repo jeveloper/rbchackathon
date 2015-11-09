@@ -73,19 +73,19 @@ app.listen(process.env.PORT || 3000, function () {
 
 ### Screenshots
 
-![Alt text](https://github.com/jeveloper/rbchackathon/tree/master/screenshots/desktop.png "Desktop (think advisor)")
+![Alt text](https://raw.githubusercontent.com/jeveloper/rbchackathon/master/screenshots/desktop.png "Desktop (think advisor)")
 
-![Alt text](https://github.com/jeveloper/rbchackathon/tree/master/screenshots/1.png "Welcome")
+![Alt text](https://raw.githubusercontent.com/jeveloper/rbchackathon/master/screenshots/screenshots/1.png "Welcome")
 
-![Alt text](https://github.com/jeveloper/rbchackathon/tree/master/screenshots/2.png "Aboriginal Language In Canada and others")
+![Alt text](https://raw.githubusercontent.com/jeveloper/rbchackathon/master/screenshots/screenshots/2.png "Aboriginal Language In Canada and others")
 
-![Alt text](https://github.com/jeveloper/rbchackathon/tree/master/screenshots/3.png "Topics to narrow down to ")
+![Alt text](https://raw.githubusercontent.com/jeveloper/rbchackathon/master/screenshots/screenshots/3.png "Topics to narrow down to ")
 
-![Alt text](https://github.com/jeveloper/rbchackathon/tree/master/screenshots/4.png "What if Advisor can derect you to nearest location")
+![Alt text](https://raw.githubusercontent.com/jeveloper/rbchackathon/master/screenshots/screenshots/4.png "What if Advisor can derect you to nearest location")
 
-![Alt text](https://github.com/jeveloper/rbchackathon/tree/master/screenshots/5.png "Speak to qualified advisor")
+![Alt text](https://raw.githubusercontent.com/jeveloper/rbchackathon/master/screenshots/screenshots/5.png "Speak to qualified advisor")
 
-![Alt text](https://github.com/jeveloper/rbchackathon/tree/master/screenshots/6.png "Real time chat")
+![Alt text](https://raw.githubusercontent.com/jeveloper/rbchackathon/master/screenshots/screenshots/6.png "Real time chat")
 
 
 
