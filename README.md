@@ -1,5 +1,5 @@
 # Bincu -  better interaction with customers
-### A product of 2015 RBC Hackathon , 36 hours, 45 minutes of sleep
+### A product of 2015 RBC Hackathon , 25+ hours, 45 minutes of sleep
 =====================
 
 

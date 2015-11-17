@@ -6,27 +6,23 @@ h2{
 	color:#606060;
 }
 
-
 .container {
-
- background-image: url('/img/bg.png');
+	background-image: url('/img/bg.png');
 }
 .slider-slide {
-    height: 700px;
+	height: 700px;
 }
 
 
 /*this is for chat height*/
 .available-scroller {
-  height: 75%;
+	height: 75%;
 }
 .kickfooter {
 	margin-bottom: 50px; 
 }
 .item.chat {
 	border-style: none;
-
-		
 }
 
 #rep_chat {

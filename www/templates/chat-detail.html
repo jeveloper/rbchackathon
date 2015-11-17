@@ -1,32 +1,28 @@
 
 <ion-view view-title="">
- <ion-nav-buttons side="primary">
-<!--   <button class="button button-small button-positive" > 
-     Back to RBC App
-      </button>
-        <div class="title">Chat</div> -->
-      <button class="button button-small button-balanced" href="tel:+118007692520">
-      <i class="ion-ios-telephone"></i>
-     Call
-      </button>
-       
-    </ion-nav-buttons>
+<ion-nav-buttons side="primary">
+<button class="button button-small button-balanced" href="tel:+118007692520">
+  <i class="ion-ios-telephone"></i>
+  Call
+</button>
+
+</ion-nav-buttons>
 <ion-content class="available-scroller " scrollbar-x="false" overflow-scroll="true"  >
 
 <ion-item class="chat" collection-repeat="item in v.messages">
 
-  <div  ng-show="item.is_customer" >
-  <i class=" icon  item-text-wrap ion-chatbubble">
+<div  ng-show="item.is_customer" >
+  <i class="icon item-text-wrap ion-chatbubble">
     {{item.message}}
   </i>
-  </div>
+</div>
 
 
-  <div ng-show="!item.is_customer" class="item-text-wrap  item-icon-right" >
+<div ng-show="!item.is_customer" class="item-text-wrap  item-icon-right" >
   <i  class="icon ion-ios-chatbubble-outline  " id="rep_chat">
     {{item.message}}
   </i>
-  </div>
+</div>
 
 </ion-item>
 
